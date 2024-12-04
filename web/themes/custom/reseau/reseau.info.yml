@@ -3,7 +3,7 @@ type: theme
 description: 'reseau'
 core_version_requirement: ^9
 base theme: stable9
-# logo: images/logo-Presses-Universitaires-Antilles.jpg
+
 libraries:
   - reseau/global-styling
   - reseau/fonts
@@ -20,6 +20,7 @@ regions:
   breadcrumb: Breadcrumb
   highlighted: Highlighted
   help: Help
+  logo_menus: 'Logos structures et menus'
   sidebar_first: 'First sidebar'
   content: Content
   sidebar_second: 'Second sidebar'

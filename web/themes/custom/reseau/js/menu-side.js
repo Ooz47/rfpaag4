@@ -2,46 +2,42 @@
   Drupal.behaviors.mySidebarMenu = {
     attach: function (context, settings) {
 
-      $(context).find("#sidebar").once("some-arbitrary-but-unique-key").each(function () {
+//       $(context).find(".aside").once("some-arbitrary-but-unique-key").each(function () {
 
-        var $element = $(this).find('.menu-item--active-trail a.is-active');
-        var $sub = $element.parent().children('div').children('ul');
-        $sub.removeClass('collapse');
+//         var $element = $(this).find('.menu-item--active-trail a.is-active');
+//         var $sub = $element.parent().children('div').children('ul');
+//         $sub.removeClass('collapse');
 
-        $.fn.isInViewport = function() {
-          var elementTop = $(this).offset().top;
-          var elementBottom = elementTop + $(this).outerHeight();
+//         $.fn.isInViewport = function() {
+//           var elementTop = $(this).offset().top;
+//           var elementBottom = elementTop + $(this).outerHeight();
       
-          var viewportTop = $(window).scrollTop();
-          var viewportBottom = viewportTop + $(window).height();
+//           var viewportTop = $(window).scrollTop();
+//           var viewportBottom = viewportTop + $(window).height();
       
-          return elementBottom > viewportTop && elementTop < viewportBottom;
-      };
+//           return elementBottom > viewportTop && elementTop < viewportBottom;
+//       };
 
-      $(window).on('load resize', function() {
-      var sidebarcontentheight = 0;
+//       $(window).on('load resize', function() {
+//       var sidebarcontentheight = 0;
 
-$("#sidebar").children().each(function(){
-  sidebarcontentheight = sidebarcontentheight + $(this).outerHeight(true);
-});
+// $(".aside").children().each(function(){
+//   sidebarcontentheight = sidebarcontentheight + $(this).outerHeight(true);
+// });
 
-var contenuPrincipalHeight = $(".contenuprincipal").outerHeight(true);
+// var contenuPrincipalHeight = $(".contenuprincipal").outerHeight(true);
       
-      if ((contenuPrincipalHeight >= sidebarcontentheight) && (sidebarcontentheight < $(window).height()) ){ 
+//       if ((contenuPrincipalHeight >= sidebarcontentheight) && (sidebarcontentheight < $(window).height()) ){ 
 
-        $("#sidebar").css("position", "sticky");
-        $("#sidebar").css("top", "100px");
-        $("#sidebar").css("height", "auto");
-      }
-    });
+//         $(".aside").css("position", "sticky");
+//         $(".aside").css("top", "100px");
+//         $(".aside").css("height", "auto");
+//       }
+//     });
 
-   
+//       });
+
  
-
-
-      });
-
-    
 
     }
   };
