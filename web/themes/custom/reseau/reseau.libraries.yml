@@ -23,7 +23,7 @@ webform:
       css/webform.css: {}
 menu-side:
   js:
-    js/menu-side.js: {}
+    js/menu-side.js: {defer: true, async: true}
 fonts:
   css:
     theme:

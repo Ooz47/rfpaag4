@@ -12,16 +12,10 @@
  * @see template_preprocess_region()
  */
 #}
-{# {%
-  set custom_classes = [
-  'is-sticky',
-  ]
-%} #}
 
-
-
+{{ attach_library('reseau/menu-side') }}
 {% if content %}
-  <div{{ attributes.setAttribute('class', 'sidebar') .addClass(custom_classes) }}>
+  <div{{ attributes.setAttribute('class', 'sidebar') }}>
     {{ content }}
   </div>
 {% endif %}
