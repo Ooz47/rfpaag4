@@ -214,17 +214,24 @@
 
           /* Fonction scroll vers contenu principal si pas dans viewport */
           window.addEventListener("load", function () {
+           if(window.innerWidth < 768){
             const el = document.querySelector(
-              ".contenuprincipal .webform-submission-form"
+              ".row.principale .contenuprincipal"
             );
             if (el) {
-              console.log(el);
-              console.log(isElementXPercentInViewport(el, 20));
-              if (isElementXPercentInViewport(el, 10) == false) {
+              // console.log(el);
+              // console.log(isElementXPercentInViewport(el, 20));
+              if (isElementXPercentInViewport(el, 60) == false) {
                 el.scrollIntoView(true);
               }
             }
+          }
           });
+
+            // Gérer le clic sur #block-outils
+  $("#block-outils").on("click", function () {
+    $(".views-exposed-form, .AccessBtn").toggleClass("d-none");
+  });
 
           /*** */
         });

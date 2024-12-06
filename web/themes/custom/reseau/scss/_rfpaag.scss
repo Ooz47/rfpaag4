@@ -408,6 +408,11 @@ strong {
   display: none;
 }
 
+// .row.principale {
+//   margin-top: -150px;
+//   padding-top: 150px;
+// }
+
 aside .block-menu {
   background: $grisclair;
 
@@ -429,22 +434,53 @@ aside .block-menu {
     }
   }
 
+  &#block-gretaguadeloupe h2,
+  &#block-gipdaifi h2,
+  &#block-cfapag h2,
+  &#block-gretastmartinstbarth h2,
+  &#block-capsbh h2
+   {
+
+    &::before {
+      content: "\f1ad";
+    }
+  }
+
   h2 {
+    display: flex!important;
     padding: 10px 0px;
     margin: 0;
-    display: inline-block;
+    display: block;
     text-transform: uppercase;
     color: $grisfonce;
     @include font-size(16px);
 
-    &::before {
+    &::before, &::after {
       @include font-size(16px);
       font-family: "Font Awesome 5 Free";
       margin: 0 1rem;
-      // font-size: 30px;
       font-weight: 600;
-      // color: $vert;
     }
+    &::after {
+      right: 0;
+    position: absolute;
+    content: "\f0c9";
+    }
+    &.show {
+      
+      &::after {
+        content: "\f00d";
+      }
+      }
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      display: none!important;
+    }
+  //  h2::after {
+  //     display: none; /* Cache le bouton en mode desktop */
+  //   }
   }
 
   // ul {
@@ -1277,6 +1313,29 @@ body {
   }
 }
 
+/*OUTILS*/
+
+div#block-outils > div > p {
+  @include font-size(14px);
+  color: $grisfonce;
+  &::before {
+    content: "\f7d9";
+    @include font-size(16px);
+    padding: 10px 0px;
+    // margin: 0;
+    // display: block;
+    text-transform: uppercase;
+    
+    font-family: "Font Awesome 5 Free";
+    // margin: 0 1rem;
+    margin: 0 .5rem;
+    font-weight: 600;
+  }
+
+}
+/*FIN OUTILS*/
+
+
 /***** FINHEaDER******/
 
 /*Moteur de recherche*/
@@ -1343,10 +1402,12 @@ body.recherche .contenuprincipal .views-element-container {
 
 main .contenuprincipal {
   overflow: hidden;
-  .webform-submission-form {
-    margin-top: -150px;
-    padding-top: 150px;
-  }
+  margin-top: -150px;
+  padding-top: 150px;
+  // .webform-submission-form {
+  //   margin-top: -150px;
+  //   padding-top: 150px;
+  // }
   .views-element-container {
     nav {
       ul.js-pager__items {
