@@ -13,7 +13,7 @@
           var n = $( "input:checked" ).length;
           // $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
          
-          console.log(element);
+          // console.log(element);
         };
         // countChecked();
          

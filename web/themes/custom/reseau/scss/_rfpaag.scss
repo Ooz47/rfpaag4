@@ -406,6 +406,7 @@ strong {
 /*sous menu*/
 .row.principale .logo_menus {
   display: none;
+  z-index: 999;
 }
 
 // .row.principale {
@@ -438,16 +439,15 @@ aside .block-menu {
   &#block-gipdaifi h2,
   &#block-cfapag h2,
   &#block-gretastmartinstbarth h2,
-  &#block-capsbh h2
-   {
-
+  &#block-capsbh h2 {
     &::before {
       content: "\f1ad";
     }
   }
 
   h2 {
-    display: flex!important;
+    cursor: pointer;
+    display: flex !important;
     padding: 10px 0px;
     margin: 0;
     display: block;
@@ -455,32 +455,32 @@ aside .block-menu {
     color: $grisfonce;
     @include font-size(16px);
 
-    &::before, &::after {
+    &::before,
+    &::after {
       @include font-size(16px);
       font-family: "Font Awesome 5 Free";
       margin: 0 1rem;
       font-weight: 600;
     }
     &::after {
-      right: 0;
-    position: absolute;
-    content: "\f0c9";
+      flex-grow: 1;
+      text-align: end;
+      content: "\f0c9";
     }
     &.show {
-      
       &::after {
         content: "\f00d";
       }
-      }
+    }
   }
 
   @media (min-width: 768px) {
     h2 {
-      display: none!important;
+      display: none !important;
     }
-  //  h2::after {
-  //     display: none; /* Cache le bouton en mode desktop */
-  //   }
+    //  h2::after {
+    //     display: none; /* Cache le bouton en mode desktop */
+    //   }
   }
 
   // ul {
@@ -1315,9 +1315,17 @@ body {
 
 /*OUTILS*/
 
+body.recherche {
+  #block-outils,
+  .AccessBtn {
+    display: none !important;
+  }
+}
 div#block-outils > div > p {
   @include font-size(14px);
+  cursor: pointer;
   color: $grisfonce;
+  content: "";
   &::before {
     content: "\f7d9";
     @include font-size(16px);
@@ -1325,16 +1333,14 @@ div#block-outils > div > p {
     // margin: 0;
     // display: block;
     text-transform: uppercase;
-    
+
     font-family: "Font Awesome 5 Free";
     // margin: 0 1rem;
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
     font-weight: 600;
   }
-
 }
 /*FIN OUTILS*/
-
 
 /***** FINHEaDER******/
 
@@ -1389,13 +1395,15 @@ div#block-outils > div > p {
   margin: 0 !important;
 }
 
-body.recherche .contenuprincipal .views-element-container {
-  .views-row {
-    margin-bottom: 1.5rem;
+body.recherche {
+  .contenuprincipal .views-element-container {
+    .views-row {
+      margin-bottom: 1.5rem;
 
-    .views-field-type {
-      color: $grisfoncepolice;
-      font-variant: all-small-caps;
+      .views-field-type {
+        color: $grisfoncepolice;
+        font-variant: all-small-caps;
+      }
     }
   }
 }
@@ -1430,12 +1438,12 @@ main .contenuprincipal {
   }
 }
 
-.layout-sidebar-first #block-formulaireexposerecherchepage-1-2 {
+aside #block-formulaireexposerecherchepage-1-2 {
   padding-right: 1rem !important;
   padding-left: 1rem !important;
 }
 
-body.recherche .layout-sidebar-first .views-exposed-form #views-exposed-form-recherche-page-1 {
+body.recherche aside .views-exposed-form #views-exposed-form-recherche-page-1 {
   flex-direction: column;
   align-items: stretch;
   details.form-wrapper {
@@ -3245,13 +3253,53 @@ body.page-node-formation {
 
 /*TROUVER MA FORMATION*/
 //moteur de recherche
-.layout-sidebar-first {
-  .views-exposed-form {
-    // margin-top: 4rem;
+aside {
+  .views-exposed-form#block-formulaireexposerecherchepage-1-2 {
+    display: block !important;
+  }
 
+  .views-exposed-form#block-formulaireexposerecherche-formationspage-1 {
+    padding: 1rem;
+    background: $grisclair;
+    border-radius: 7px;
+    #views-exposed-form-recherche-formations-page-1 {
+      margin-top: 1rem;
+    }
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+aside {
+  .views-exposed-form#block-formulaireexposerecherchepage-1-2,
+  .views-exposed-form#block-formulaireexposerecherche-formationspage-1 {
     h2 {
       color: $vert;
       @include font-size(15px);
+      cursor: pointer;
+      &::before,
+      ,
+      &::after {
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        margin-right: 1rem;
+      }
+      &::before {
+        content: "\f1de";
+      }
+
+      &::after {
+        right: 0;
+        position: absolute;
+        content: "\f00d";
+      }
+      &.hide {
+        &::after {
+          display: none;
+        }
+      }
     }
 
     details.form-wrapper {
@@ -3265,7 +3313,7 @@ body.page-node-formation {
         font-variant: all-small-caps;
         background: $vert;
         color: $blanc;
-        padding: 0.5rem;
+        padding: 0 0.5rem;
         font-weight: 600;
       }
 
@@ -3893,8 +3941,7 @@ body.tarteaucitron-modal-open {
   }
 
   .recherche-formations {
-  
-    .row  {
+    .row {
       margin-left: 25px;
       .formations_disponibles span {
         font-size: 1rem;
@@ -3906,13 +3953,14 @@ body.tarteaucitron-modal-open {
       width: 220px !important;
       font-size: 0.775rem;
       display: inline-block;
-      &.form-submit { font-size: 0.875rem; }
+      &.form-submit {
+        font-size: 0.875rem;
+      }
     }
 
     .row .form-actions {
       text-align: center;
       width: auto !important;
-    
     }
   }
 
@@ -3938,14 +3986,22 @@ body.tarteaucitron-modal-open {
     }
   }
 
-
   .page-node-20 #btnAccesRapide {
     // width: 218px;
     // margin-top: 69px;
     // margin-left: -80px;
     font-size: 1.2rem;
-}
+  }
 
+  div#block-outils > div > p {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8rem;
+    align-items: center;
+  }
+  .btn-header>span:last-child {
+    display: none;
+}
 }
 
 .unpublished {

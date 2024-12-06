@@ -15,6 +15,7 @@
 
             function toggleClickListeners(enable) {
               const navHeaders = $(".logo_menus nav > h2");
+              const formHeaders = $("#block-formulaireexposerecherche-formationspage-1 > h2");
               if (enable) {
                 // Ajouter l'événement de clic
                 
@@ -25,9 +26,18 @@
                   // console.log( $(this));
                   
                 });
+
+                formHeaders.off("click").on("click", function () {
+                  const formSibling = $(this).siblings("form");
+                  formSibling.toggleClass("d-none");
+                  $(this).toggleClass("hide", formSibling.hasClass("d-none"));
+                  // console.log( $(this));
+                  
+                });
               } else {
                 // Supprimer l'événement de clic
                 navHeaders.off("click");
+                formHeaders.off("click");
               }
             }
 
@@ -55,9 +65,39 @@
                 ) {
                   $(".logo_menus nav > h2").siblings("ul").addClass("show");
                 }
+
+                // if (
+                //   $("#block-formulaireexposerecherche-formationspage-1 > h2").siblings("form").hasClass("hide")
+                // ) {
+                  $("#block-formulaireexposerecherche-formationspage-1 > h2").siblings("form").removeClass("d-none");
+                  $("#block-formulaireexposerecherche-formationspage-1 > h2").addClass("hide");
+                // }
                 //retire class mobile
 
                 toggleClickListeners(false); // Désactiver les clics en desktop
+
+     /** Gestion position sticky**/
+     var sidebarcontentheight = 0;
+     $(".aside")
+     .children()
+     .each(function () {
+       sidebarcontentheight =
+         sidebarcontentheight + $(this).outerHeight(true);
+     });
+// console.log(sidebarcontentheight);
+   var contenuPrincipalHeight =
+     $(".contenuprincipal").outerHeight(true);
+
+   if (
+     contenuPrincipalHeight >= sidebarcontentheight &&
+     sidebarcontentheight < $(window).height()
+   ) {
+     $(".aside > aside").css("position", "sticky");
+     $(".aside > aside").css("top", "100px");
+     $(".aside > aside").css("height", "auto");
+   }
+     /** FinGestion position sticky**/
+
               } else {
                 // Mode mobile : restaurer la structure
 
@@ -75,12 +115,19 @@
                     );
                   aside.remove();
                 }
-                console.log( $('mobile'));
+                // console.log( $('mobile'));
                 if (
                   $(".logo_menus nav > h2").siblings("ul").hasClass("show")
                 ) {
                   $(".logo_menus nav > h2").siblings("ul").removeClass("show");
                 }
+                // if (
+                //   !$("#block-formulaireexposerecherche-formationspage-1 > h2").siblings("form").hasClass("hide")
+                // ) {
+                //   $("#block-formulaireexposerecherche-formationspage-1 > h2").siblings("form").addClass("hide");
+                // }
+                $("#block-formulaireexposerecherche-formationspage-1 > h2").siblings("form").addClass("d-none");
+                $("#block-formulaireexposerecherche-formationspage-1 > h2").addClass("hide");
                 toggleClickListeners(true); // Activer les clics en mobile
               }
 
@@ -90,6 +137,11 @@
                 .css("animation-duration", "0.75s")
                 .css("animation-name", "animate-fade");
               // $(".logo_menus nav > h2").addClass("show");
+
+
+              var sidebarcontentheight = 0;
+
+         
             }
 
             // Ajuste la disposition au chargement
@@ -100,9 +152,10 @@
           });
         });
 
-      /** Gestion ordre élément firstsidebar**/
 
-      /** Gestion position sticky */
+
+     
+      /** Gestion ordre élément firstsidebar**/
 
       $(context)
         //élément contenant les menus
@@ -113,39 +166,39 @@
           var $sub = $element.parent().children("div").children("ul");
           $sub.removeClass("collapse");
 
-          $.fn.isInViewport = function () {
-            var elementTop = $(this).offset().top;
-            var elementBottom = elementTop + $(this).outerHeight();
+          // $.fn.isInViewport = function () {
+          //   var elementTop = $(this).offset().top;
+          //   var elementBottom = elementTop + $(this).outerHeight();
 
-            var viewportTop = $(window).scrollTop();
-            var viewportBottom = viewportTop + $(window).height();
+          //   var viewportTop = $(window).scrollTop();
+          //   var viewportBottom = viewportTop + $(window).height();
 
-            return elementBottom > viewportTop && elementTop < viewportBottom;
-          };
+          //   return elementBottom > viewportTop && elementTop < viewportBottom;
+          // };
 
-          $(window).on("load resize", function () {
-            var sidebarcontentheight = 0;
+          // $(window).on("load resize", function () {
+//             var sidebarcontentheight = 0;
 
-            //soit élémnent unique, soit deux
-            $(".aside")
-              .children()
-              .each(function () {
-                sidebarcontentheight =
-                  sidebarcontentheight + $(this).outerHeight(true);
-              });
+//             //soit élémnent unique, soit deux
+//             $(".aside")
+//               .children()
+//               .each(function () {
+//                 sidebarcontentheight =
+//                   sidebarcontentheight + $(this).outerHeight(true);
+//               });
+// console.log(sidebarcontentheight);
+//             var contenuPrincipalHeight =
+//               $(".contenuprincipal").outerHeight(true);
 
-            var contenuPrincipalHeight =
-              $(".contenuprincipal").outerHeight(true);
-
-            if (
-              contenuPrincipalHeight >= sidebarcontentheight &&
-              sidebarcontentheight < $(window).height()
-            ) {
-              $(".aside > aside").css("position", "sticky");
-              $(".aside > aside").css("top", "100px");
-              $(".aside > aside").css("height", "auto");
-            }
-          });
+//             if (
+//               contenuPrincipalHeight >= sidebarcontentheight &&
+//               sidebarcontentheight < $(window).height()
+//             ) {
+//               $(".aside > aside").css("position", "sticky");
+//               $(".aside > aside").css("top", "100px");
+//               $(".aside > aside").css("height", "auto");
+//             }
+          // });
         });
     },
   };

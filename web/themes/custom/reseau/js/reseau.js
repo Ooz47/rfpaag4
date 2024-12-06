@@ -230,8 +230,13 @@
 
             // Gérer le clic sur #block-outils
   $("#block-outils").on("click", function () {
-    $(".views-exposed-form, .AccessBtn").toggleClass("d-none");
+    $(".views-exposed-form#block-formulaireexposerecherchepage-1, .AccessBtn").toggleClass("d-none");
   });
+
+  // $("#block-formulaireexposerecherche-formationspage-1 > h2").on("click", function () {
+  //   $("#views-exposed-form-recherche-formations-page-1").toggleClass("d-none");
+  //   $(this).toggleClass("hide");
+  // });
 
           /*** */
         });
