@@ -39,7 +39,7 @@
 {% if item.caption.link %}
 	{%
   set caption_classes = caption_classes|merge([
-    'd-flex',
+    'd-sm-flex',
     'align-items-center',
 
   ])
@@ -87,7 +87,7 @@
 								{% endif %}
 							{% endif %}
 							{% if item.caption.link %}
-								<div class="col-9">
+								<div class="col-12 col-sm-9">
 								{% endif %}
 								{% if item.caption.title %}
 									<h2 class="slide__title">{{ item.caption.title }}</h2>
@@ -103,7 +103,7 @@
 								{% if item.caption.link %}
 								</div>
 
-								<div class="col-3 text-align-center px-3">
+								<div class="col-12 col-sm-3 text-align-center px-3 py-1">
 
 									<div
 										class="slide__link">

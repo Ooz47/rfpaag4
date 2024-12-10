@@ -128,6 +128,8 @@
                 // }
                 $("#block-formulaireexposerecherche-formationspage-1 > h2").siblings("form").addClass("d-none");
                 $("#block-formulaireexposerecherche-formationspage-1 > h2").addClass("hide");
+                $("aside").css("height", "auto").css("position", "initial").css("top", "auto");
+         
                 toggleClickListeners(true); // Activer les clics en mobile
               }
 
@@ -140,8 +142,7 @@
 
 
               var sidebarcontentheight = 0;
-
-         
+           
             }
 
             // Ajuste la disposition au chargement

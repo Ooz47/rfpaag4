@@ -521,6 +521,15 @@ aside .block-menu {
     list-style-type: none;
     padding: 0;
 
+   
+  //   &.menu-level-0 {
+  //     transform: scaleY(0);
+  //     transform-origin: top;
+  //     transition: transform 0.3s ease;
+  // &.show {
+  //   transform: scaleY(1);
+  // }
+  //   }
     li {
       // @include font-size(15px);
       border-top: 1px solid $grismoyen;
@@ -2769,6 +2778,7 @@ body.page-node-page {
           .slick-prev,
           .slick-next {
             color: $blanc;
+           
           }
         }
       }
@@ -2873,6 +2883,7 @@ body.page-node-page {
   .slick-next {
     @include transition(color, 0.5s ease);
     color: #babdbf;
+    text-shadow: 0 1px $noirpolice;
   }
 
   .slick-prev:before,
@@ -3777,6 +3788,17 @@ body.tarteaucitron-modal-open {
   body.page-node-formation.page-node-verticale article .field-group-tabs-wrapper .horizontal-tabs > div {
     width: 100%;
   }
+
+  body.page-node-structure,
+  body.page-node-page {
+    article {
+      .slick {
+        .slick-list {
+          .slick-slide {
+            .slide__caption {
+              position: relative;
+            }}}}}}
+
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
