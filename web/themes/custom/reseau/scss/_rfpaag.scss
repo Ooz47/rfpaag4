@@ -521,15 +521,14 @@ aside .block-menu {
     list-style-type: none;
     padding: 0;
 
-   
-  //   &.menu-level-0 {
-  //     transform: scaleY(0);
-  //     transform-origin: top;
-  //     transition: transform 0.3s ease;
-  // &.show {
-  //   transform: scaleY(1);
-  // }
-  //   }
+    //   &.menu-level-0 {
+    //     transform: scaleY(0);
+    //     transform-origin: top;
+    //     transition: transform 0.3s ease;
+    // &.show {
+    //   transform: scaleY(1);
+    // }
+    //   }
     li {
       // @include font-size(15px);
       border-top: 1px solid $grismoyen;
@@ -2778,7 +2777,6 @@ body.page-node-page {
           .slick-prev,
           .slick-next {
             color: $blanc;
-           
           }
         }
       }
@@ -3797,8 +3795,12 @@ body.tarteaucitron-modal-open {
           .slick-slide {
             .slide__caption {
               position: relative;
-            }}}}}}
-
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
@@ -4021,9 +4023,9 @@ body.tarteaucitron-modal-open {
     line-height: 0.8rem;
     align-items: center;
   }
-  .btn-header>span:last-child {
+  .btn-header > span:last-child {
     display: none;
-}
+  }
 }
 
 .unpublished {
@@ -4080,3 +4082,63 @@ body.page-node-formation.page-node-verticale article .field-group-tabs-wrapper {
     content: "\f0e0";
   }
 }
+
+/*Mur d'images*/
+ul.blazy--field-media-slideshow {
+  justify-content: center !important;
+
+  li::before {
+    display: none;
+  }
+}
+
+/* fin Mur d'images*/
+
+/*Diaporama*/
+.slick-wrapper {
+  margin-bottom: 0;
+  .slick--field-media-slideshow {
+    // display: flex;
+    //   justify-content: center;
+    .slick-list .slick-track .slick__slide .slide__content .slick-list {
+      display: flex;
+      .slick-slide {
+        margin: auto;
+        img {
+          -webkit-border-radius: 15px;
+          border-radius: 15px;
+          background-clip: padding-box;
+        }
+      }
+    }
+  }
+}
+
+body.page-node-page article .slick nav.slick__arrow {
+  width: 100%;
+  left: auto;
+  top: 50%;
+}
+.slick--thumbnail.slick--skin--asnavfor {
+  .slick__slider {
+    width: 90%;
+    margin: auto;
+    .slick-list {
+      padding: 0;
+    }
+    .slick__slide.slick-current {
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  nav.slick__arrow {
+    width: 100%;
+    left: auto;
+    top: 50%;
+
+    overflow: initial;
+  }
+}
+
+/*Fin Diaporama*/

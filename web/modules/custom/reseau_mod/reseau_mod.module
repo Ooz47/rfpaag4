@@ -240,7 +240,7 @@ function fill_initial_values($entity)
         }
       }
      
-      if (strpos($path, '/node/add/') === 0) {
+      if ((strpos($path, '/node/add/') === 0) || (strpos($path, '/admin/structure/media/add') === 0)) {
         // dsm($entity);
         return;
      }
@@ -639,7 +639,7 @@ function reseau_mod_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
   $mediaformtype = array(
     "media_document_add_form", "media_image_add_form",
     "media_audio_add_form", "media_remote_video_add_form",
-    "media_video_add_form"
+    "media_video_add_form", "media_galerie_add_form"
   );
 
   if (in_array($form_id, $mediaformtype)) {
@@ -663,7 +663,7 @@ function reseau_mod_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
   $mediaformtype = array(
     "media_document_edit_form", "media_image_edit_form",
     "media_audio_edit_form", "media_remote_video_edit_form",
-    "media_video_edit_form"
+    "media_video_edit_form", "media_galerie_edit_form"
   );
 
   if (in_array($form_id, $mediaformtype)) {

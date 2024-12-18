@@ -467,3 +467,68 @@ table {
   }
   }
 }
+
+/*Galerie*/
+
+.cke_widget_drupalmedia {
+  .cke_widget_element .slick-wrapper::before,
+  .cke_widget_element .blazy--field-media-slideshow::before
+    {
+    content: "Diaporama";
+    width: 100%;
+    /* height: 100%; */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 25px;
+    font-size: 5em;
+    z-index: 99;
+    background: #47474796;
+    text-align: center;
+    padding-top: 30%;
+    color: #fff;
+  }
+
+  /*Mur*/
+  .cke_widget_element .blazy--field-media-slideshow {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    &::before
+    {
+    content: "Mur d'images";
+    padding-top: 20%;
+    top: 0;
+    }
+    li.grid {
+      width: 30%;
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+
+  .slick--optionset--diaporama {
+    .slick__slide {
+      &:first-child {display:block;}
+      display:none;}
+     
+  }
+  .slick--optionset--diaporama-nav {
+    .slick__slider {
+      display: flex;
+    column-gap: 15px;
+    .slick__slide {
+      display: none;
+    }
+    .slick__slide:nth-child(-n + 4) {
+      display: block;
+    }
+    }
+    nav.slick__arrow {
+      display: none;
+    }
+
+  }
+}
