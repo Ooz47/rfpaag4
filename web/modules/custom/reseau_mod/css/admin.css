@@ -16,6 +16,8 @@ input[name="ief-reference-submit-field_fmt_contacts-form"],
 #block-seven-help,
 form.node-structure-edit-form #edit-field-resultats-wrapper table#field-resultats-values #edit-field-resultats-0-top #edit-field-resultats-0-top-links-remove-button,
 #field-reseaux-sociaux-values td.field-multiple-drag
+.media-galerie-add-form #edit-field-media-slideshow-wrapper .media-library-widget__toggle-weight,
+.media-galerie-edit-form #edit-field-media-slideshow-wrapper .media-library-widget__toggle-weight
 {
     display:none!important;
 }

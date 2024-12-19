@@ -625,12 +625,18 @@ function reseau_mod_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
     }
   }
 
+
   if ($form_id === 'media_library_add_form_upload') {
-    if (isset($form['media']['0']['fields']['field_media_structure_associee']['widget'])) {
-      if (\Drupal::currentUser()->hasPermission('modifier structure associee')) {
-        return;
+    if (isset($form['media'])) {
+      foreach ($form['media'] as $key => $value) {
+ 
+        if (isset($form['media'][$key]['fields']['field_media_structure_associee']['widget'])) {
+          if (\Drupal::currentUser()->hasPermission('modifier structure associee')) {
+            return;
+          }
+          $form['media'][$key]['fields']['field_media_structure_associee']['widget']['#disabled'] = TRUE;
+        }
       }
-      $form['media']['0']['fields']['field_media_structure_associee']['widget']['#disabled'] = TRUE;
     }
   }
 
