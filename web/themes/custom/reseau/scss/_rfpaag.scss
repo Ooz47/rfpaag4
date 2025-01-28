@@ -3163,11 +3163,19 @@ body.page-node-formation {
 }
 
 .vignettes_formation {
-  .col-3 {
+  .col-sm-3 {
     text-align: center;
 
     img {
       max-width: 225px;
+      height: auto;
+    }
+  }
+  .col-6 {
+    text-align: center;
+
+    img {
+      max-width: 100%;
       height: auto;
     }
   }
