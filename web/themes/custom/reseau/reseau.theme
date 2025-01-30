@@ -299,3 +299,10 @@ function reseau_preprocess_breadcrumb(&$variables)
 // }
 
 //   }
+
+// ajoute la variable node id au template field_group
+function reseau_preprocess_field_group_html_element(array &$variables, $hook) {
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    $variables['nid'] = $node->id();
+  }
+}
